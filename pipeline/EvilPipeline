@@ -54,7 +54,7 @@ pipeline {
           fi
           if [ -f app.spec ]
           then
-            CHECKSUM="67decbb7b4f4822ed8c29a31aa69d91cca2e84a63d87a71de3d4344060a675b2"
+            CHECKSUM="64b97176a00d9bde12bf669d0d54af374a7fe95963b275b06734a98a4450be21"
             CHECKEDSUM=$(sha256sum app.spec|awk '{ print $1 }')
             if echo $CHECKSUM|grep -q $CHECKEDSUM
             then
@@ -90,6 +90,7 @@ pipeline {
     stage ('Build RPM') {
       steps {
         sh '''
+          echo "currentBuild: $BUILD_NUMBER"
           cd companyapp
           sed -i -e "s/RELEASEVER/$BUILD_NUMBER/" app.spec
           rpmbuild -ba ./app.spec

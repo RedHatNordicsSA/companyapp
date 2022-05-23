@@ -91,6 +91,7 @@ pipeline {
       steps {
         sh '''
           cd companyapp
+          sed -i -e "s/RELEASEVER/${currentBuild.number}/" app.spec
           rpmbuild -ba ./app.spec
         '''
       }

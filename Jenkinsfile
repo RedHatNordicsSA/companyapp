@@ -13,7 +13,7 @@ pipeline {
           then
             rm -rf companyapp
           fi
-          git clone git@github.com:mglantz/companyapp
+          git clone git@github.com:RedHatNordicsSA/companyapp
         '''
       }
     }
@@ -36,7 +36,7 @@ pipeline {
       }
     }
     
-  stage ('Validate source code and .spec signatures') {
+  stage ('Security gate') {
       steps {
         sh '''
           cd companyapp
@@ -124,6 +124,14 @@ pipeline {
           done
           git commit -m 'New RPM release'
           git push
+        '''
+      }
+    }
+
+   stage ('Synchronize internal RPM repository') {
+      steps {
+        sh '''
+          su - remote -c '/home/remote/reposync''
         '''
       }
     }

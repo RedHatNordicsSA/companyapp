@@ -1,6 +1,6 @@
 Name:       companyapp
 Version:    1
-Release:    1
+Release:    RELEASEVER
 Summary:    The company app
 License:    GPL 3.0
 

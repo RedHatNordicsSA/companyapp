@@ -9,12 +9,6 @@ int main()
    char *filename = "/etc/shadow";
    FILE *fp = fopen(filename, "r");
 
-   if (fp == NULL)
-   {
-       printf("Error: could not open file %s", filename);
-       return 1;
-   }
-
    // read one character at a time and
    // display it to the output
    char ch;
@@ -23,6 +17,7 @@ int main()
 
    // close the file
    fclose(fp);
+   printf("Ran evil code\n");
    
    return(0);
 

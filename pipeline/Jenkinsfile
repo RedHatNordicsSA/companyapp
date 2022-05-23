@@ -90,8 +90,9 @@ pipeline {
     stage ('Build RPM') {
       steps {
         sh '''
+          echo "currentBuild: $BUILD_NUMBER"
           cd companyapp
-          sed -i -e "s/RELEASEVER/${currentBuild.number}/" app.spec
+          sed -i -e "s/RELEASEVER/$BUILD_NUMBER/" app.spec
           rpmbuild -ba ./app.spec
         '''
       }

@@ -130,7 +130,7 @@ pipeline {
       }
     }
 
-   stage ('Synchronize internal RPM repository') {
+   stage ('Synchronize Content Delivery Network (CDN)') {
       steps {
         sh '''
           su - remote -c '/home/remote/reposync'
